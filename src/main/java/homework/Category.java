@@ -31,9 +31,9 @@ public class Category {
     private String nameCategory;
     /**
      * @apiNote Эта переменная содержит массив товаров относящихся к определенной категории
-     * @arrayList массив товаров относящихся к определенной категории товаров
+     * @listOfProducts массив товаров относящихся к определенной категории товаров
      */
-    private ArrayList<Product> arrayList;
+    private List<Product> listOfProducts;
 
     public Category(String nameCategory) {
         this.nameCategory = nameCategory;
@@ -47,25 +47,24 @@ public class Category {
         this.nameCategory = nameCategory;
     }
 
-    public ArrayList<Product> getArrayList() {
-        return arrayList;
+    public List<Product> getList() {
+        return listOfProducts;
     }
 
     public void setArrayList(ArrayList<Product> arrayList) {
-        this.arrayList = arrayList;
-    }
-
-    public void addedInArrayList(Product product) {
-        this.arrayList.add(product);
+        this.listOfProducts = arrayList;
     }
 
 
+    public Category(String nameCategory, List<Product> arrayListOfProducts) {
+        this.nameCategory = nameCategory;
+        this.listOfProducts = arrayListOfProducts;
+    }
 
     @Override
     public String toString() {
-        return "Категория{" +
-                "Наименование категории: '" + nameCategory + '\'' +
-                ", входящие товары: " + arrayList +
+        return "Категория: " + nameCategory + '\'' +
+                ", входящие товары: " + listOfProducts +
                 '}';
     }
 
