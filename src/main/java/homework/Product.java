@@ -22,6 +22,7 @@ public class Product {
 
     protected double price;
     protected int rating;
+    protected int count;
 
 
     /**
@@ -35,6 +36,7 @@ public class Product {
         this.name = name;
         this.price = price;
         this.rating = rating;
+        this.count = 0;
 
     }
 

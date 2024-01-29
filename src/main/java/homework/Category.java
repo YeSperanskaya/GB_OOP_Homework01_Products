@@ -64,7 +64,7 @@ public class Category {
     @Override
     public String toString() {
         return "Категория: " + nameCategory + '\'' +
-                ", входящие товары: " + listOfProducts +
+                ", товары: " + listOfProducts +
                 '}';
     }
 

@@ -18,10 +18,7 @@
 
 package homework;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class MyProgram {
     public static void main(String[] args) {
@@ -36,11 +33,13 @@ public class MyProgram {
         Category sweetCategory = new Category("сладкое", Arrays.asList(product001, product004));
         Category baceryCategory = new Category("хлебобулочные изделия", Arrays.asList(product003));
 
-        Basket basket = new Basket("мармелад", 100.5, 3, 5);
+
+
+
         System.out.println(vegetablesCategory);
         System.out.println(sweetCategory);
         System.out.println(baceryCategory);
-        System.out.println(basket);
+
     }
 
 
