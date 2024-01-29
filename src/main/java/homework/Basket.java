@@ -22,11 +22,27 @@ import java.util.List;
 import java.util.Map;
 
 public class Basket{
-    private List<Category> listBasket;
+    private List<Product> listBasket;
 
     private double sumOfProducts;
 
-    public double summ()
+    public Basket(List<Product> listBasket) {
+        this.listBasket = listBasket;
+        System.out.println("Сумма корзины составляет " + summ());
+    }
+
+    public double summ() {
+        for (Product elem : listBasket) {
+            sumOfProducts += (elem.getCount()*elem.getPrice());
+        }
+        return sumOfProducts;
+    }
+
+    @Override
+    public String toString() {
+        return "Список товаров в корзине: " + listBasket + "\n" +
+                "общая сумма товаров: " + summ();
+    }
 
 
     //всандалить сюда сумму товаров которая еще будет считаться!

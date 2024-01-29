@@ -22,11 +22,18 @@ import java.util.*;
 
 public class MyProgram {
     public static void main(String[] args) {
+
         // создать продукты сразу с количеством, засовывая их сразу через лист в категории
         // баскет через то как я выбирала какую команду выбрать в итоговой задаче по джава
         //юзер логин и пароль вообще фигня и к нему баскед присобачить
         // он пишет название продукта и количество, программа скачет по массиву продуктов по названию если такое находит то добавляет в корзину чувака и отнимает из кассы магазина
+        User magazine = createMagazine();
+        System.out.println(magazine);
 
+    }
+
+
+    public static User createMagazine() {
         Product product001 = new Product("мармелад", 100.5, 3, 2);
         Product product002 = new Product("помидор", 56.9, 4, 35);
         Product product003 = new Product("хлеб", 26.3, 5, 45);
@@ -37,17 +44,9 @@ public class MyProgram {
         Category vegetablesCategory = new Category("овощи", Arrays.asList(product002, product006));
         Category sweetCategory = new Category("сладкое", Arrays.asList(product001, product004));
         Category baceryCategory = new Category("хлебобулочные изделия", Arrays.asList(product003));
-        Basket magazineBasket = new Basket(Arrays.asList(vegetablesCategory, sweetCategory, baceryCategory));
-
-
-
-        System.out.println(vegetablesCategory);
-        System.out.println(sweetCategory);
-        System.out.println(baceryCategory);
+        Basket magazineBasket = new Basket(Arrays.asList(product001, product002,product003,product004,product005,product006));
+        User magazine = new User("магазин", "qwerty", magazineBasket);
+        return magazine;
 
     }
-
-
-
-
 }
