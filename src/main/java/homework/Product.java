@@ -18,11 +18,14 @@
 package homework;
 
 public class Product {
-    protected String name;
+    private String name;
 
-    protected double price;
-    protected int rating;
-    protected int count;
+    private double price;
+    private int rating;
+    private int count;
+
+
+
 
 
     /**
@@ -32,41 +35,49 @@ public class Product {
      * @param rating рейтинг товара  в диапазоне от 0 до 5
 
      */
-    public Product(String name, double price, int rating) {
+    public Product(String name, double price, int rating, int count) {
         this.name = name;
         this.price = price;
         this.rating = rating;
-        this.count = 0;
+        this.count = count;
 
     }
 
+    /**
+     * Наименвоание товара
+     * @name наименвоание товара класса Product
+     */
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
+    /**
+     * @price цена товара класса Product
+     */
     public double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    /**
+     * @count количество товара класса Product
+     */
+    public int getCount() {
+        return count;
     }
 
-    public int getRating() {
-        return rating;
+    /**
+     * Изменить количество товара
+     * @param count количество товара класса Product
+     */
+    public void setCount(int count) {
+        this.count = count;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
-
-
+    /**
+     * Корректный вывод на экран наименования товара, рейтинрга, цены, количества
+     */
     @Override
     public String toString() {
-        return name + "( цена: " + price + " рейтинг: " + rating + ")";
+        return name + " (цена: " + price + ", рейтинг: " + rating + ", количество: " + count + ")";
     }
 }

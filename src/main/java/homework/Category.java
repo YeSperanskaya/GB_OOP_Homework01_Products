@@ -21,7 +21,7 @@ package homework;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
+
 
 public class Category {
     /**
@@ -55,17 +55,24 @@ public class Category {
         this.listOfProducts = arrayList;
     }
 
-
-    public Category(String nameCategory, List<Product> arrayListOfProducts) {
+    /**
+     * Создание категории товаров
+     * @param nameCategory название категории товаров
+     * @param listOfProducts массив товаров в категории
+     */
+    public Category(String nameCategory, List<Product> listOfProducts) {
         this.nameCategory = nameCategory;
-        this.listOfProducts = arrayListOfProducts;
+        this.listOfProducts = listOfProducts;
     }
 
+
+    /**
+     * Коректный вывод на печать Названия категории товаров и массива самих товаров
+     */
     @Override
     public String toString() {
-        return "Категория: " + nameCategory + '\'' +
-                ", товары: " + listOfProducts +
-                '}';
+        return "Категория: " + nameCategory +
+                ", товары: " + listOfProducts;
     }
 
 

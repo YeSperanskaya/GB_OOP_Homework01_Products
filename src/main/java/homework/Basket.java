@@ -22,7 +22,14 @@ import java.util.List;
 import java.util.Map;
 
 public class Basket{
+    private List<Category> listBasket;
 
+    private double sumOfProducts;
+
+    public double summ()
+
+
+    //всандалить сюда сумму товаров которая еще будет считаться!
 
 
     // массив купленных товаров
