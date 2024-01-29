@@ -19,5 +19,23 @@
 package homework;
 
 public class Basket {
+    /**
+     * @param name   наименование товара
+     * @param price  цена товара в рублях
+     * @param rating рейтинг товара  в диапазоне от 0 до 5
+     * @param countOfProduct количество товара
+     * @apiNote Создание класса товар
+     */
+    private int countOfProduct;
+
+    public Basket(String name, double price, int rating, int countOfProduct) {
+        if (super.name.equals(name) && super.price == price && super.rating == rating) {
+            this.countOfProduct = countOfProduct;
+        } else {
+            System.out.println("Вы не можете приобрести данный товар");
+        }
+
+    }
+
     // массив купленных товаров
 }

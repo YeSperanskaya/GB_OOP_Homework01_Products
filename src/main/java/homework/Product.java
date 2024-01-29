@@ -23,20 +23,19 @@ public class Product {
     protected double price;
     protected int rating;
 
-    protected int count;
 
     /**
      * @apiNote Создание класса товар
      * @param name наименование товара
      * @param price цена товара в рублях
      * @param rating рейтинг товара  в диапазоне от 0 до 5
-     * @param count количество товара
+
      */
-    public Product(String name, double price, int rating, int count) {
+    public Product(String name, double price, int rating) {
         this.name = name;
         this.price = price;
         this.rating = rating;
-        this.count = count;
+
     }
 
     public String getName() {
@@ -63,16 +62,9 @@ public class Product {
         this.rating = rating;
     }
 
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
-    }
 
     @Override
     public String toString() {
-        return "Товар: {наименование: " + name + " цена: " + price + " рейтинг: " + rating + " количество: " + count + "}";
+        return name + "( цена: " + price + " рейтинг: " + rating + ")";
     }
 }
