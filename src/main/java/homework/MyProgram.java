@@ -20,33 +20,75 @@ package homework;
 
 import java.util.*;
 
+import static homework.User.createMagazine;
+
 public class MyProgram {
-    public static void main(String[] args) {
+
+
+
+   public static void main(String[] args) {
+        User magazine = createMagazine();
+        basketOfUser(magazine);
+
+
+
 
         // создать продукты сразу с количеством, засовывая их сразу через лист в категории
         // баскет через то как я выбирала какую команду выбрать в итоговой задаче по джава
         //юзер логин и пароль вообще фигня и к нему баскед присобачить
         // он пишет название продукта и количество, программа скачет по массиву продуктов по названию если такое находит то добавляет в корзину чувака и отнимает из кассы магазина
-        User magazine = createMagazine();
+
+
+       //System.out.println(magazine);
+
+
+   }
+
+/**
+    public static User createUser(String password, String login) {
+
+    }
+ */
+
+    public static void basketOfUser(User magazine) {
+        List<Product> listUserProduct = new ArrayList<Product>();
+        List<Product> listMagazineProduct = magazine.getBasket().getListBasket();
+        int countOfProductUser;
+        int newCountInMagazine;
+        int oldCountInMagazine;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Сейчас вам будет предложен на выбор ассортимент магазина, вам нужно указать количество товара, которое вы хотите добавить в корзину");
+
+        for (Product elem : listMagazineProduct) {
+            System.out.println(elem);
+            countOfProductUser = sc.nextInt();
+            oldCountInMagazine = elem.getCount();
+            if (countOfProductUser <= oldCountInMagazine) {
+                newCountInMagazine = oldCountInMagazine - countOfProductUser;
+                System.out.println(newCountInMagazine);
+                elem.setCount(newCountInMagazine);
+                listUserProduct.add(elem);
+                for (Product product : listUserProduct) {
+                    if (product.equals(elem)) {
+                        product.setCount(countOfProductUser);
+                        System.out.println(countOfProductUser);
+                    }
+                }
+            } else {
+                System.out.println("В нашем магазине нет такого количества нужного вам товара, у нас на складе имеется только " + elem.getCount());
+            }
+            // тут должен быть механизм добавления новой цифры количества товара в магазин (с проверкой можно ли вообще столько купить)
+            //и тут добавление этого продукта с указанной цифрой в лист, в конце этот лист
+
+        }
+        sc.close();
+        System.out.println("вся корзина");
+        System.out.println(listUserProduct);
+        System.out.println("весь магазин");
         System.out.println(magazine);
-
+        //return Basket(listOfProduct);
     }
 
 
-    public static User createMagazine() {
-        Product product001 = new Product("мармелад", 100.5, 3, 2);
-        Product product002 = new Product("помидор", 56.9, 4, 35);
-        Product product003 = new Product("хлеб", 26.3, 5, 45);
-        Product product004 = new Product("Сникерс", 56, 5, 45);
-        Product product005 = new Product("колбаса", 560, 5, 34);
-        Product product006 = new Product("огурец", 205.6, 5, 2);
 
-        Category vegetablesCategory = new Category("овощи", Arrays.asList(product002, product006));
-        Category sweetCategory = new Category("сладкое", Arrays.asList(product001, product004));
-        Category baceryCategory = new Category("хлебобулочные изделия", Arrays.asList(product003));
-        Basket magazineBasket = new Basket(Arrays.asList(product001, product002,product003,product004,product005,product006));
-        User magazine = new User("магазин", "qwerty", magazineBasket);
-        return magazine;
-
-    }
 }

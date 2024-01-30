@@ -19,7 +19,6 @@
 package homework;
 
 import java.util.List;
-import java.util.Map;
 
 public class Basket{
     private List<Product> listBasket;
@@ -31,11 +30,21 @@ public class Basket{
         System.out.println("Сумма корзины составляет " + summ());
     }
 
+
+
     public double summ() {
         for (Product elem : listBasket) {
             sumOfProducts += (elem.getCount()*elem.getPrice());
         }
         return sumOfProducts;
+    }
+
+    public List<Product> getListBasket() {
+        return listBasket;
+    }
+
+    public void setListBasket(List<Product> listBasket) {
+        this.listBasket = listBasket;
     }
 
     @Override
@@ -45,8 +54,9 @@ public class Basket{
     }
 
 
-    //всандалить сюда сумму товаров которая еще будет считаться!
 
 
-    // массив купленных товаров
+
+
+
 }
