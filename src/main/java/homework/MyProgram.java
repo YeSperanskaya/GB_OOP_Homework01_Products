@@ -89,6 +89,9 @@ public class MyProgram {
         //return Basket(listOfProduct);
     }
 
+// убрать из продукта вообще количество
+    // создать корзину в ней ввести эту переменную и вместе с переменной сделать количество
 
+    //Basket <Product, Integer> bask = new Basket(Product product01, int count);
 
 }
