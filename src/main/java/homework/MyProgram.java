@@ -20,15 +20,18 @@ package homework;
 
 import java.util.*;
 
-import static homework.User.createMagazine;
+
 
 public class MyProgram {
 
 
 
    public static void main(String[] args) {
-        User magazine = createMagazine();
-        basketOfUser(magazine);
+       User magazine = createMagazine();
+       createBasketOfUser(magazine);
+
+       //System.out.println(magazine);
+        //basketOfUser(magazine);
 
 
 
@@ -44,12 +47,25 @@ public class MyProgram {
 
    }
 
-/**
-    public static User createUser(String password, String login) {
 
+
+
+
+
+    public static void createUser(String password, String login, User magazine) {
+        createBasketOfUser(magazine);
     }
- */
 
+    public static void createBasketOfUser(User magazine) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Сейчас вам будет предложен на выбор ассортимент магазина, вам нужно указать количество товара, которое вы хотите добавить в корзину");
+        HashMap <Product, Integer> forUserBasket = new HashMap<>();
+        forUserBasket.entrySet();
+
+
+        
+    }
+/**
     public static void basketOfUser(User magazine) {
         List<Product> listUserProduct = new ArrayList<Product>();
         List<Product> listMagazineProduct = magazine.getBasket().getListBasket();
@@ -93,5 +109,35 @@ public class MyProgram {
     // создать корзину в ней ввести эту переменную и вместе с переменной сделать количество
 
     //Basket <Product, Integer> bask = new Basket(Product product01, int count);
+ */
+
+public static User createMagazine() {
+    Product product001 = new Product("мармелад", 100.5, 3);
+    Product product002 = new Product("помидор", 56.9, 4);
+    Product product003 = new Product("хлеб", 26.3, 5);
+    Product product004 = new Product("Сникерс", 56, 5);
+    Product product005 = new Product("колбаса", 560, 5);
+    Product product006 = new Product("огурец", 205.6, 5);
+
+    Category vegetablesCategory = new Category("овощи", Arrays.asList(product002, product006));
+    Category sweetCategory = new Category("сладкое", Arrays.asList(product001, product004));
+    Category baceryCategory = new Category("хлебобулочные изделия", Arrays.asList(product003));
+    //Basket magazineBasket = new Basket(Arrays.asList(product001, product002,product003,product004,product005,product006));
+    HashMap<Product, Integer> bask = new HashMap<>();
+    bask.put(product001, 3);
+    bask.put(product002, 3);
+    bask.put(product003, 3);
+    bask.put(product004, 3);
+    bask.put(product005, 3);
+    bask.put(product006, 3);
+    System.out.println(bask);
+    Basket magazineBasket = new Basket (bask);
+    System.out.println(magazineBasket);
+    User magazine = new User("магазин", "qwerty", magazineBasket);
+    //System.out.println(magazine);
+    return magazine;
+}
+
+
 
 }

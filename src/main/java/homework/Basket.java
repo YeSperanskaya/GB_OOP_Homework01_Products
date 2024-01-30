@@ -18,39 +18,35 @@
 
 package homework;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class Basket{
-    private List<Product> listBasket;
+    private HashMap<Product, Integer> hashMApBasket;
+    private int countOfProducts;
 
     private double sumOfProducts;
 
-    public Basket(List<Product> listBasket) {
-        this.listBasket = listBasket;
-        System.out.println("Сумма корзины составляет " + summ());
+    public Basket(HashMap<Product, Integer> hashBasket) {
+
+        this.hashMApBasket = hashBasket;
+        //System.out.println("Сумма корзины составляет " + summ());
     }
 
 
-
-    public double summ() {
-        for (Product elem : listBasket) {
-            sumOfProducts += (elem.getCount()*elem.getPrice());
-        }
-        return sumOfProducts;
+    public HashMap<Product, Integer> getHashMApBasket() {
+        return hashMApBasket;
     }
 
-    public List<Product> getListBasket() {
-        return listBasket;
-    }
-
-    public void setListBasket(List<Product> listBasket) {
-        this.listBasket = listBasket;
+    public int getCountOfProducts() {
+        return countOfProducts;
     }
 
     @Override
     public String toString() {
-        return "Список товаров в корзине: " + listBasket + "\n" +
-                "общая сумма товаров: " + summ();
+        return
+                "Список товаров в корзине: " + hashMApBasket + "\n";
+                //"общая сумма товаров: " + summ();
     }
 
 

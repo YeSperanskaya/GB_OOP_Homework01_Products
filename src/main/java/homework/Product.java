@@ -22,7 +22,7 @@ public class Product {
 
     private double price;
     private int rating;
-    private int count;
+
 
 
 
@@ -35,11 +35,11 @@ public class Product {
      * @param rating рейтинг товара  в диапазоне от 0 до 5
 
      */
-    public Product(String name, double price, int rating, int count) {
+    public Product(String name, double price, int rating) {
         this.name = name;
         this.price = price;
         this.rating = rating;
-        this.count = count;
+
 
     }
 
@@ -58,26 +58,12 @@ public class Product {
         return price;
     }
 
-    /**
-     * @count количество товара класса Product
-     */
-    public int getCount() {
-        return count;
-    }
-
-    /**
-     * Изменить количество товара
-     * @param count количество товара класса Product
-     */
-    public void setCount(int count) {
-        this.count = count;
-    }
 
     /**
      * Корректный вывод на экран наименования товара, рейтинрга, цены, количества
      */
     @Override
     public String toString() {
-        return name + " (цена: " + price + ", рейтинг: " + rating + ", количество: " + count + ")";
+        return name + " (цена: " + price + ", рейтинг: " + rating + ")";
     }
 }
