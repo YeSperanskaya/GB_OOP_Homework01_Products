@@ -19,7 +19,9 @@
 package homework;
 
 
+import java.util.Arrays;
 import java.util.HashMap;
+
 
 public class MyProgram {
 
@@ -32,6 +34,15 @@ public class MyProgram {
         Product product004 = new Product("Сникерс", 56, 5);
         Product product005 = new Product("колбаса", 560, 5);
         Product product006 = new Product("огурец", 205.6, 5);
+
+
+        //добавила категории
+        System.out.println("В нашем магазине содержатся следующие товары: ");
+        Category sweetCategory = new Category("Сладкое", Arrays.asList(product001, product004));
+        Category vegetablesCategory = new Category("овощи", Arrays.asList(product002, product006));
+        Category breadCategory = new Category("хлебобулочные изделия", Arrays.asList(product003));
+        Category meatCtegory = new Category("мясные изделия", Arrays.asList(product005));
+        System.out.println(sweetCategory + "\n" + vegetablesCategory + "\n" + breadCategory + "\n" + meatCtegory);
 
         //создание корзины магазина и добалвение в нее продуктов
         Basket magazineBasket = new Basket (product001, 3);
@@ -61,10 +72,6 @@ public class MyProgram {
 
     }
 
-    /**
-     * Этот метод создает полностью магазин с ассортиментом из которого уже будет все вычитаться
-     * @return возвращает весь ассортимент магазина
-     */
 
 
 
