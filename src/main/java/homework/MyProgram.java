@@ -24,27 +24,37 @@ import java.util.HashMap;
 public class MyProgram {
 
     public static void main(String[] args) {
-        //User magazine = createMagazine();
+
+        //создание продуктов
         Product product001 = new Product("мармелад", 100.5, 3);
         Product product002 = new Product("помидор", 56.9, 4);
         Product product003 = new Product("хлеб", 26.3, 5);
         Product product004 = new Product("Сникерс", 56, 5);
         Product product005 = new Product("колбаса", 560, 5);
         Product product006 = new Product("огурец", 205.6, 5);
+
+        //создание корзины магазина и добалвение в нее продуктов
         Basket magazineBasket = new Basket (product001, 3);
         magazineBasket.put(product002,3);
         magazineBasket.put(product003, 3);
         magazineBasket.put(product004,3);
         magazineBasket.put(product005,3);
         magazineBasket.put(product006,3);
+
+        // создание пользоваетля магазин
         User magazine = new User("magazine", "qwerty", magazineBasket);
 
-        User user1 = new User("user", "sesef", new Basket(product001, 1));
-        //System.out.println(user1);
-        //magazine.buy(user1);
-        User user2 = new User("fdgd", "rgdr", new Basket(product004, 234234));
-        //magazine.buy(user2);
-        User user3 = new User("rfgdfg", "gfdgdfg", new Basket(product001, -3));
+        // создание разных пользователей
+        System.out.println("первый покупатель");
+        User user1 = new User("Вася Пупкин", "sesef", new Basket(product001, 1));
+        magazine.buy(user1);
+        System.out.println("второй покупатель");
+
+        User user2 = new User("Семен Семеныч", "rgdr", new Basket(product004, 234234));
+        magazine.buy(user2);
+        System.out.println("третий покупатель");
+
+        User user3 = new User("дядя Гриша", "gfdgdfg", new Basket(product001, -3));
         magazine.buy(user3);
 
 

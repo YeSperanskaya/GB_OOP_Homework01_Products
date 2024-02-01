@@ -85,7 +85,6 @@ public class User {
     public void buy(User buyer) {
         HashMap<Product, Integer> hashMagazine = this.getBasket().getHashMApBasket();
         HashMap<Product, Integer> hashBuyer = buyer.getBasket().getHashMApBasket();
-
         //тест
         System.out.println("ассортимент в магазине в начале: ");
         System.out.println(hashMagazine);
