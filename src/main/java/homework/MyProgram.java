@@ -29,9 +29,13 @@ public class MyProgram {
         magazine.getBasket();
         User ivanov = new User("Ivanov", "324234");
         System.out.println(ivanov);
+        boolean res = ivanov.getBasket().basketIsEmpty();
+        System.out.println(res);
         // надо человеку добавлять элемент в корзину
         ivanov.addBasketUser(product001,3);
         System.out.println(ivanov);
+        res = ivanov.getBasket().basketIsEmpty();
+        System.out.println(res);
 
 
 

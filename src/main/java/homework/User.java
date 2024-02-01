@@ -25,12 +25,23 @@ public class User {
     private String password;
     private Basket basket;
 
+    /**
+     * @apiNote Создание пользователя Магазин (используя логин, пароль, заполненную корзину для магазина)
+     * @param login логин
+     * @param password пароль
+     * @param basket содержимое корзины
+     */
     public User(String login, String password, Basket basket) {
         this.login = login;
         this.password = password;
         this.basket = basket;
     }
 
+    /**
+     * Создание пользователя ФЛ или ЮЛ (используя логин, пароль)
+     * @param login логин пользователя
+     * @param password пароль пользователя
+     */
     public User(String login, String password) {
         this.login = login;
         this.password = password;
@@ -38,11 +49,15 @@ public class User {
     }
 
 
+    /**
+     * Просмотр содержимого корзины
+     * @return содержимое корзины
+     */
     public Basket getBasket() {
         return basket;
     }
 
-    // надо придумать как менять корзину и когда, создавать отдельную перменнубю корзину которая будет вносить изменения
+
 
     /**
      * @apiNote Функция добавляющая элементы в корзину пользователю
@@ -53,6 +68,10 @@ public class User {
         basket.put(prod, count);
     }
 
+    /**
+     * @apiNote Измененый формат распечатки toString
+     * @return
+     */
     @Override
     public String toString() {
         return "Ассортимент товара пользователя " + login +

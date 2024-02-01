@@ -57,7 +57,10 @@ public class Basket{
         return hashMApBasket;
     }
 
-
+    /**
+     * @apiNote Измененый формат распечатки toString
+     * @return
+     */
     @Override
     public String toString() {
         return
@@ -74,6 +77,10 @@ public class Basket{
         this.hashMApBasket.put(prod,countOfProducts);
     }
 
+    /**
+     * @apiNote проверка на заполненность корзины, если пуста возвращает true
+     * @return булевое значение
+     */
     public boolean basketIsEmpty() {
         return hashMApBasket.isEmpty();
     }
