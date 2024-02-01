@@ -31,6 +31,13 @@ public class User {
         this.basket = basket;
     }
 
+    public User(String login, String password) {
+        this.login = login;
+        this.password = password;
+        this.basket = new Basket();
+    }
+
+
     public Basket getBasket() {
         return basket;
     }

@@ -25,11 +25,18 @@ public class MyProgram {
 
     public static void main(String[] args) {
         User magazine = createMagazine();
+        magazine.getBasket();
+        User ivanov = new User("Ivanov", "324234");
+        System.out.println(ivanov);
 
 
 
     }
 
+    /**
+     * Этот метод создает полностью магазин с ассортиментом из которого уже будет все вычитаться
+     * @return возвращает весь ассортимент магазина
+     */
     public static User createMagazine() {
         Product product001 = new Product("мармелад", 100.5, 3);
         Product product002 = new Product("помидор", 56.9, 4);
