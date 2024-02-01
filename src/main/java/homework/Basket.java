@@ -41,6 +41,10 @@ public class Basket{
         this.hashMApBasket = hashMap;
     }
 
+    public Basket(HashMap<Product, Integer> hashMap) {
+        this.hashMApBasket = hashMap;
+    }
+
     /**
      * @apiNote Создание пустой корзины
      */

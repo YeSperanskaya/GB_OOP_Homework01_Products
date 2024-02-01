@@ -26,10 +26,10 @@ public class User {
     private Basket basket;
 
     /**
-     * @apiNote Создание пользователя Магазин (используя логин, пароль, заполненную корзину для магазина)
-     * @param login логин
+     * @param login    логин
      * @param password пароль
-     * @param basket содержимое корзины
+     * @param basket   содержимое корзины
+     * @apiNote Создание пользователя Магазин (используя логин, пароль, заполненную корзину для магазина)
      */
     public User(String login, String password, Basket basket) {
         this.login = login;
@@ -39,7 +39,8 @@ public class User {
 
     /**
      * Создание пользователя ФЛ или ЮЛ (используя логин, пароль)
-     * @param login логин пользователя
+     *
+     * @param login    логин пользователя
      * @param password пароль пользователя
      */
     public User(String login, String password) {
@@ -51,6 +52,7 @@ public class User {
 
     /**
      * Просмотр содержимого корзины
+     *
      * @return содержимое корзины
      */
     public Basket getBasket() {
@@ -58,19 +60,18 @@ public class User {
     }
 
 
-
     /**
-     * @apiNote Функция добавляющая элементы в корзину пользователю
-     * @param prod название товара
+     * @param prod  название товара
      * @param count количество товара
+     * @apiNote Функция добавляющая элементы в корзину пользователю
      */
     public void addBasketUser(Product prod, int count) {
         basket.put(prod, count);
     }
 
     /**
-     * @apiNote Измененый формат распечатки toString
      * @return
+     * @apiNote Измененый формат распечатки toString
      */
     @Override
     public String toString() {
@@ -81,6 +82,46 @@ public class User {
     }
 
 
+    public void buy(User buyer) {
+        HashMap<Product, Integer> hashMagazine = this.getBasket().getHashMApBasket();
+        HashMap<Product, Integer> hashBuyer = buyer.getBasket().getHashMApBasket();
+
+        //тест
+        System.out.println("ассортимент в магазине в начале: ");
+        System.out.println(hashMagazine);
+        System.out.println("выбор клиента");
+        System.out.println(hashBuyer);
+
+        int countOfClient;
+        int oldCountOfMagazine;
+        int newCountInMagazine;
+        System.out.println("start");
+        for (Product prod : hashMagazine.keySet()) {
+            //System.out.println(prod);
+            if (hashBuyer.keySet().contains(prod)) {
+                countOfClient = hashBuyer.get(prod);
+                oldCountOfMagazine = hashMagazine.get(prod);
+                if (countOfClient > oldCountOfMagazine) {
+                    System.out.println("В нашем магазине нет достаточного количества " + prod);
+                    countOfClient = oldCountOfMagazine;
+                    newCountInMagazine = 0;
+                    hashBuyer.put(prod, countOfClient);
+                    hashMagazine.put(prod, newCountInMagazine);
+                } else if (countOfClient < 0) {
+                    countOfClient = 0;
+                    hashBuyer.put(prod, countOfClient);
+                } else {
+                    newCountInMagazine = oldCountOfMagazine - countOfClient;
+                    hashMagazine.put(prod, newCountInMagazine);
+                }
+            }
+        }
+        System.out.println("ассортимент в магазине в конце: ");
+        System.out.println(hashMagazine);
+        System.out.println("выбор клиента в итоге");
+        System.out.println(hashBuyer);
+    }
+}
 
 
 
@@ -88,4 +129,4 @@ public class User {
 
     // тут должны быть пользоватеоли и магазин
     // сделать подкласс магазин в котором будут состоять все продукты и из которого они будут убираться
-}
+

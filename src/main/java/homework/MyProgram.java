@@ -24,18 +24,7 @@ import java.util.HashMap;
 public class MyProgram {
 
     public static void main(String[] args) {
-        User magazine = createMagazine();
-
-
-
-
-    }
-
-    /**
-     * Этот метод создает полностью магазин с ассортиментом из которого уже будет все вычитаться
-     * @return возвращает весь ассортимент магазина
-     */
-    public static User createMagazine() {
+        //User magazine = createMagazine();
         Product product001 = new Product("мармелад", 100.5, 3);
         Product product002 = new Product("помидор", 56.9, 4);
         Product product003 = new Product("хлеб", 26.3, 5);
@@ -49,9 +38,24 @@ public class MyProgram {
         magazineBasket.put(product005,3);
         magazineBasket.put(product006,3);
         User magazine = new User("magazine", "qwerty", magazineBasket);
-        System.out.println(magazine);
-        return magazine;
+
+        User user1 = new User("user", "sesef", new Basket(product001, 1));
+        //System.out.println(user1);
+        //magazine.buy(user1);
+        User user2 = new User("fdgd", "rgdr", new Basket(product004, 234234));
+        //magazine.buy(user2);
+        User user3 = new User("rfgdfg", "gfdgdfg", new Basket(product001, -3));
+        magazine.buy(user3);
+
+
+
     }
+
+    /**
+     * Этот метод создает полностью магазин с ассортиментом из которого уже будет все вычитаться
+     * @return возвращает весь ассортимент магазина
+     */
+
 
 
 
