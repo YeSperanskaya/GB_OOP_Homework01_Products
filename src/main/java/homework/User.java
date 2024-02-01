@@ -42,10 +42,13 @@ public class User {
     @Override
     public String toString() {
         return "Ассортимент товара пользователя " + login +
-                ", с паролем: " + password + " "
-                 + basket.getHashMApBasket() +
+                ", с паролем: ***********"
+                + basket.getHashMApBasket() +
                 '}';
     }
+
+
+
 
 
     // и объект класса баскет

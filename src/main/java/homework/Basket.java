@@ -27,9 +27,11 @@ public class Basket{
 
     private double sumOfProducts;
 
-    public Basket(HashMap<Product, Integer> hashBasket) {
+    public Basket(Product prod, int countOfProducts) {
+        HashMap<Product, Integer> hashMap = new HashMap<>();
+        hashMap.put(prod,countOfProducts);
+        this.hashMApBasket = hashMap;
 
-        this.hashMApBasket = hashBasket;
         //System.out.println("Сумма корзины составляет " + summ());
     }
 
@@ -37,6 +39,7 @@ public class Basket{
     public HashMap<Product, Integer> getHashMApBasket() {
         return hashMApBasket;
     }
+
 
     public int getCountOfProducts() {
         return countOfProducts;
@@ -49,7 +52,9 @@ public class Basket{
                 //"общая сумма товаров: " + summ();
     }
 
-
+    public void put(Product prod, int countOfProducts) {
+        this.hashMApBasket.put(prod,countOfProducts);
+    }
 
 
 
