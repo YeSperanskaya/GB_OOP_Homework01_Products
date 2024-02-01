@@ -42,8 +42,15 @@ public class User {
         return basket;
     }
 
-    public void setBasket(Basket basket) {
-        this.basket = basket;
+    // надо придумать как менять корзину и когда, создавать отдельную перменнубю корзину которая будет вносить изменения
+
+    /**
+     * @apiNote Функция добавляющая элементы в корзину пользователю
+     * @param prod название товара
+     * @param count количество товара
+     */
+    public void addBasketUser(Product prod, int count) {
+        basket.put(prod, count);
     }
 
     @Override

@@ -24,9 +24,13 @@ import java.util.HashMap;
 public class MyProgram {
 
     public static void main(String[] args) {
+        Product product001 = new Product("мармелад", 100.5, 3);
         User magazine = createMagazine();
         magazine.getBasket();
         User ivanov = new User("Ivanov", "324234");
+        System.out.println(ivanov);
+        // надо человеку добавлять элемент в корзину
+        ivanov.addBasketUser(product001,3);
         System.out.println(ivanov);
 
 

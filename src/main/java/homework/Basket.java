@@ -22,30 +22,41 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Basket{
+    /**
+     * @hashMApBasket карта в формате ХэшМэп, содержащаяся в Корзине
+     */
     private HashMap<Product, Integer> hashMApBasket;
-    private int countOfProducts;
+
 
     private double sumOfProducts;
 
+    /**
+     * @apiNote Создание корзины путем добавления продукта
+     * @param prod наименование продукта
+     * @param countOfProducts количество создаваемого продукта
+     */
     public Basket(Product prod, int countOfProducts) {
         HashMap<Product, Integer> hashMap = new HashMap<>();
         hashMap.put(prod,countOfProducts);
         this.hashMApBasket = hashMap;
     }
+
+    /**
+     * @apiNote Создание пустой корзины
+     */
     public Basket() {
         HashMap<Product, Integer> hashMap = new HashMap<>();
         this.hashMApBasket = hashMap;
     }
 
-
+    /**
+     * @apiNote Содержимое корзины
+     * @return Возврат корзины в формате ХэшМэп
+     */
     public HashMap<Product, Integer> getHashMApBasket() {
         return hashMApBasket;
     }
 
-
-    public int getCountOfProducts() {
-        return countOfProducts;
-    }
 
     @Override
     public String toString() {
@@ -54,11 +65,18 @@ public class Basket{
                 //"общая сумма товаров: " + summ();
     }
 
+    /**
+     * Добавить товар в корзину
+     * @param prod наименование товара
+     * @param countOfProducts количество товара
+     */
     public void put(Product prod, int countOfProducts) {
         this.hashMApBasket.put(prod,countOfProducts);
     }
 
-
+    public boolean basketIsEmpty() {
+        return hashMApBasket.isEmpty();
+    }
 
 
 
