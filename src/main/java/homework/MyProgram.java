@@ -55,17 +55,23 @@ public class MyProgram {
         // создание пользоваетля магазин
         User magazine = new User("magazine", "qwerty", magazineBasket);
 
+
         // создание разных пользователей
-        System.out.println("первый покупатель");
+
+        System.out.println();
         User user1 = new User("Вася Пупкин", "sesef", new Basket(product001, 1));
+        System.out.println("первый покупатель: " + user1.getLogin());
         magazine.buy(user1);
-        System.out.println("второй покупатель");
 
+        System.out.println();
         User user2 = new User("Семен Семеныч", "rgdr", new Basket(product004, 234234));
+        System.out.println("второй покупатель: " + user2.getLogin());
         magazine.buy(user2);
-        System.out.println("третий покупатель");
 
+
+        System.out.println();
         User user3 = new User("дядя Гриша", "gfdgdfg", new Basket(product001, -3));
+        System.out.println("третий покупатель: " + user3.getLogin());
         magazine.buy(user3);
 
 

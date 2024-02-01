@@ -59,6 +59,9 @@ public class User {
         return basket;
     }
 
+    public String getLogin() {
+        return login;
+    }
 
     /**
      * @param prod  название товара
@@ -81,7 +84,12 @@ public class User {
                 '}';
     }
 
-
+    /**
+     * @apiNote функция покупки на кассе
+     * Покупатель выбирает товары в корзину, которые хочет приобрести и указывает их количество,
+     * Данная функцуия проверяет наличие товара в магазине, выводит оставшееся количество в магазине и количество приобретенных товаров покупателем
+     * @param buyer покупатель класса User
+     */
     public void buy(User buyer) {
         HashMap<Product, Integer> hashMagazine = this.getBasket().getHashMApBasket();
         HashMap<Product, Integer> hashBuyer = buyer.getBasket().getHashMApBasket();
@@ -107,8 +115,7 @@ public class User {
                     hashBuyer.put(prod, countOfClient);
                     hashMagazine.put(prod, newCountInMagazine);
                 } else if (countOfClient < 0) {
-                    countOfClient = 0;
-                    hashBuyer.put(prod, countOfClient);
+                    hashBuyer.remove(prod);
                 } else {
                     newCountInMagazine = oldCountOfMagazine - countOfClient;
                     hashMagazine.put(prod, newCountInMagazine);
@@ -117,8 +124,13 @@ public class User {
         }
         System.out.println("ассортимент в магазине в конце: ");
         System.out.println(hashMagazine);
-        System.out.println("выбор клиента в итоге");
-        System.out.println(hashBuyer);
+        if (hashBuyer.isEmpty()) {
+            System.out.println("Клиент " + buyer.getLogin() + " ничего не купил!");
+        } else {
+            System.out.println("Клиент " + buyer.getLogin() + " купил:");
+            System.out.println(hashBuyer);
+        }
+
     }
 }
 
